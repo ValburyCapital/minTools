@@ -70,52 +70,44 @@ namespace minTools
                 //return the date stated in the filename of a given file, as long as its a valid macquarie style filename
                 public static DateTime deriveFilenameDate(string filename)
                 {
-                    if (!(filename == null) && !(filename.Contains(DateTime.Now.AddDays(-1).ToString("yyyyMM") + "d")))
-                    {
-                        string pattern1 = "\\d{8}";
-                        string pattern2 = "\\d{6}";
-                        string pattern3 = "\\d{4}";
-                        string format = "yyyyMMdd";
+                    if ((filename == null) && !(filename.Contains(DateTime.Now.AddDays(-1).ToString("yyyyMM") + "d")))
+                        throw new ArgumentNullException();
 
-                        Match m1 = Regex.Match(filename, pattern1);
-                        Match m2 = Regex.Match(filename, pattern2);
-                        Match m3 = Regex.Match(filename, pattern3);
-                        if (m1.Success)
-                        {
-                            int temp1 = int.Parse(m1.ToString().ElementAt(0) + "" + m1.ToString().ElementAt(1));
-                            int temp2 = int.Parse(m1.ToString().ElementAt(2) + "" + m1.ToString().ElementAt(3));
-                            if (temp1 == 20 && temp2 == int.Parse(DateTime.Now.ToString("yy")))
-                                format = "yyyyMMdd";
-                            else
-                                format = "ddMMyyyy";
-                            return DateTime.ParseExact(m1.ToString(), format, CultureInfo.InvariantCulture);
-                        }
-                        else if (m2.Success)
-                        {
-                            int temp1 = int.Parse(m2.ToString().ElementAt(0) + "" + m2.ToString().ElementAt(1));
-                            int temp2 = int.Parse(m2.ToString().ElementAt(4) + "" + m2.ToString().ElementAt(5));
-                            if (temp1 == int.Parse(DateTime.Now.ToString("yy")) && temp2 == int.Parse(DateTime.Now.ToString("yy")))
-                                format = "yyMMdd";
-                            else if (temp1 == int.Parse(DateTime.Now.ToString("yy")))
-                                format = "yyMMdd";
-                            else
-                                format = "ddMMyy";
-                            return DateTime.ParseExact(m2.ToString(), format, CultureInfo.InvariantCulture);
-                        }
-                        else if (m3.Success)
-                        {
-                            format = "MMMM yyyy";
-                            return DateTime.ParseExact(m3.ToString().Replace(deriveAccountName(filename), "").Replace("_", ""), format, CultureInfo.InvariantCulture);
-                        }
+                    string format = "yyyyMMdd";
+
+                    Match m1 = Regex.Match(filename, "\\d{8}");
+                    Match m2 = Regex.Match(filename, "\\d{6}");
+                    Match m3 = Regex.Match(filename, "\\d{4}");
+
+                    if (m1.Success)
+                    {
+                        int temp1 = int.Parse(m1.ToString().ElementAt(0) + "" + m1.ToString().ElementAt(1));
+                        int temp2 = int.Parse(m1.ToString().ElementAt(2) + "" + m1.ToString().ElementAt(3));
+                        if (temp1 == 20 && temp2 == int.Parse(DateTime.Now.ToString("yy")))
+                            format = "yyyyMMdd";
                         else
-                        {
-                            return new DateTime();
-                        }
+                            format = "ddMMyyyy";
+                        return DateTime.ParseExact(m1.ToString(), format, CultureInfo.InvariantCulture);
+                    }
+                    else if (m2.Success)
+                    {
+                        int temp1 = int.Parse(m2.ToString().ElementAt(0) + "" + m2.ToString().ElementAt(1));
+                        int temp2 = int.Parse(m2.ToString().ElementAt(4) + "" + m2.ToString().ElementAt(5));
+                        if (temp1 == int.Parse(DateTime.Now.ToString("yy")) && temp2 == int.Parse(DateTime.Now.ToString("yy")))
+                            format = "yyMMdd";
+                        else if (temp1 == int.Parse(DateTime.Now.ToString("yy")))
+                            format = "yyMMdd";
+                        else
+                            format = "ddMMyy";
+                        return DateTime.ParseExact(m2.ToString(), format, CultureInfo.InvariantCulture);
+                    }
+                    else if (m3.Success)
+                    {
+                        format = "MMMM yyyy";
+                        return DateTime.ParseExact(m3.ToString().Replace(deriveAccountName(filename), "").Replace("_", ""), format, CultureInfo.InvariantCulture);
                     }
                     else
-                        throw new ArgumentNullException();
-                    //CH - check for null strings etc first		
-                    //also notice the varying date formats in RawData filenames
+                        return new DateTime();
 
                 }
 
@@ -123,36 +115,29 @@ namespace minTools
                 public static string deriveAccountName(string filename)
                 {
                     string[] months = new string[12] { "JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER" };
-                    if (!(filename == null) && !(filename.Contains(DateTime.Now.AddDays(-1).ToString("yyyyMM") + "d")))
-                    {
-                        string pattern1 = "\\d{8}";
-                        string pattern2 = "\\d{6}";
-                        string pattern3 = "\\d{4}";
-
-                        Match m1 = Regex.Match(filename, pattern1);
-                        Match m2 = Regex.Match(filename, pattern2);
-                        Match m3 = Regex.Match(filename, pattern3);
-                        if (m1.Success)
-                            return filename.Replace(m1.ToString(), "").Replace(".csv", "").Replace(".pdf", "").Replace("LEDGER", "").Replace("EQUITY", "").Replace("_TA", "").Replace("_OP", "").Replace("TA ", "").Replace("OP ", "").Replace("CASH", "").Replace("LED", "").Replace("_", "").Trim();
-                        else if (m2.Success)
-                            return filename.Replace(m2.ToString(), "").Replace(".csv", "").Replace(".pdf", "").Replace("LEDGER", "").Replace("EQUITY", "").Replace("_TA", "").Replace("_OP", "").Replace("TA ", "").Replace("OP ", "").Replace("CASH", "").Replace("LED", "").Replace("_", "").Trim();
-                        else
-                        {
-                            string temp = string.Empty;
-                            for (int i = 0; i < months.Length; i++)
-                            {
-                                if (filename.Contains(months[i]))
-                                {
-                                    temp = filename.Replace(m3.ToString(), "").Replace(".pdf", "").Replace(months[i], "").Trim();
-                                    break;
-                                }
-                            }
-                            return temp;
-                        }
-                    }
-                    else
+                    if ((filename == null) && !(filename.Contains(DateTime.Now.AddDays(-1).ToString("yyyyMM") + "d")))
                         throw new ArgumentNullException();
-                    //CH - check for null strings etc first			
+
+                    Match m1 = Regex.Match(filename, "\\d{8}");
+                    Match m2 = Regex.Match(filename, "\\d{6}");
+                    Match m3 = Regex.Match(filename, "\\d{4}");
+                    if (m1.Success)
+                        return filename.Replace(m1.ToString(), "").Replace(".csv", "").Replace(".pdf", "").Replace("LEDGER", "").Replace("EQUITY", "").Replace("_TA", "").Replace("_OP", "").Replace("TA ", "").Replace("OP ", "").Replace("CASH", "").Replace("LED", "").Replace("_", "").Trim();
+                    else if (m2.Success)
+                        return filename.Replace(m2.ToString(), "").Replace(".csv", "").Replace(".pdf", "").Replace("LEDGER", "").Replace("EQUITY", "").Replace("_TA", "").Replace("_OP", "").Replace("TA ", "").Replace("OP ", "").Replace("CASH", "").Replace("LED", "").Replace("_", "").Trim();
+                    else
+                    {
+                        string temp = string.Empty;
+                        for (int i = 0; i < months.Length; i++)
+                        {
+                            if (filename.Contains(months[i]))
+                            {
+                                temp = filename.Replace(m3.ToString(), "").Replace(".pdf", "").Replace(months[i], "").Trim();
+                                break;
+                            }
+                        }
+                        return temp;
+                    }
                 }
 
                 public static int howManyRawDataStatements(List<string> listOfFilenames)
@@ -195,8 +180,6 @@ namespace minTools
                         }
                     return output;
                 }
-
-
             }
 
             public static class BusinessDay
