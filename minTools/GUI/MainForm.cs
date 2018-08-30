@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using minTools.GUI.Macquarie;
 using minTools.FTP;
-
+using minTools.Valbury.Macquarie;
 
 namespace minTools
 {
@@ -17,6 +18,7 @@ namespace minTools
         public class MainFormData
         {
             public FolderTools ftGUI = new FolderTools();
+            public MacFTPChecker mftpcGUI = new MacFTPChecker();
         }
 
         MainFormData data = new MainFormData();
@@ -41,11 +43,22 @@ namespace minTools
 
         void showFTPChecker()
         {
+            if (data.mftpcGUI.Visible == false)
+                data.mftpcGUI = new MacFTPChecker();
+            data.mftpcGUI.ShowDialog();
         }
 
         void updateMacqFTPStatusLabel()
         {
-           
+            //get ftp directory listing
+            List<string> contents = FTPToolkit.getFTPDirectoryContents(
+                Constants.MacFTPLocationSignedInAsMacquarie,
+                Constants.MacFTPLocationUser,
+                Constants.MacFTPLocationPass);
+
+            int totalStatements = FilenameChecker.howManyClientStatements(contents, BusinessDay.GetLastBusinessDayDateTime(DateTime.Today))
+                + FilenameChecker.howManyRawDataStatements(contents, BusinessDay.GetLastBusinessDayDateTime(DateTime.Today));
+            lblMacqFTPStatusAnswer.Text = totalStatements.ToString() + " statements waiting";
         }
 
 

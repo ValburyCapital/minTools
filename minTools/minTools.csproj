@@ -50,6 +50,12 @@
     <Compile Include="GUI\FolderTools.Designer.cs">
       <DependentUpon>FolderTools.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Macquarie\MacFTPChecker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Macquarie\MacFTPChecker.Designer.cs">
+      <DependentUpon>MacFTPChecker.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,8 +67,12 @@
     <Compile Include="Source\Common.cs" />
     <Compile Include="Source\FolderToolsCollection.cs" />
     <Compile Include="Source\FTPTools.cs" />
+    <Compile Include="Source\Macquarie.cs" />
     <EmbeddedResource Include="GUI\FolderTools.resx">
       <DependentUpon>FolderTools.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Macquarie\MacFTPChecker.resx">
+      <DependentUpon>MacFTPChecker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

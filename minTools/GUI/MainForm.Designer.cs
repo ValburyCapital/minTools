@@ -29,10 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.folderToolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.macquarieToolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fTPCheckerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.lblMacqFTPStatusAnswer = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblStatusMain = new System.Windows.Forms.ToolStripStatusLabel();
@@ -55,7 +62,8 @@
             // toolsToolStripMenuItem
             // 
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.folderToolsToolStripMenuItem});
+            this.folderToolsToolStripMenuItem,
+            this.macquarieToolsToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.toolsToolStripMenuItem.Text = "Tools";
@@ -63,19 +71,66 @@
             // folderToolsToolStripMenuItem
             // 
             this.folderToolsToolStripMenuItem.Name = "folderToolsToolStripMenuItem";
-            this.folderToolsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.folderToolsToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.folderToolsToolStripMenuItem.Text = "Folder Tools";
             this.folderToolsToolStripMenuItem.Click += new System.EventHandler(this.folderToolsToolStripMenuItem_Click);
+            // 
+            // macquarieToolsToolStripMenuItem
+            // 
+            this.macquarieToolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fTPCheckerToolStripMenuItem});
+            this.macquarieToolsToolStripMenuItem.Name = "macquarieToolsToolStripMenuItem";
+            this.macquarieToolsToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.macquarieToolsToolStripMenuItem.Text = "Macquarie Tools";
+            // 
+            // fTPCheckerToolStripMenuItem
+            // 
+            this.fTPCheckerToolStripMenuItem.Name = "fTPCheckerToolStripMenuItem";
+            this.fTPCheckerToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.fTPCheckerToolStripMenuItem.Text = "FTP Checker";
+            this.fTPCheckerToolStripMenuItem.Click += new System.EventHandler(this.fTPCheckerToolStripMenuItem_Click);
             // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel1,
+            this.toolStripSeparator1,
+            this.toolStripButton1,
+            this.lblMacqFTPStatusAnswer,
             this.toolStripSeparator2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(308, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(63, 22);
+            this.toolStripLabel1.Text = "Macquarie";
+            this.toolStripLabel1.Click += new System.EventHandler(this.toolStripLabel1_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // lblMacqFTPStatusAnswer
+            // 
+            this.lblMacqFTPStatusAnswer.Name = "lblMacqFTPStatusAnswer";
+            this.lblMacqFTPStatusAnswer.Size = new System.Drawing.Size(66, 22);
+            this.lblMacqFTPStatusAnswer.Text = "Checking...";
             // 
             // toolStripSeparator2
             // 
@@ -133,7 +188,13 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem folderToolsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem macquarieToolsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fTPCheckerToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripLabel lblMacqFTPStatusAnswer;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lblStatusMain;
