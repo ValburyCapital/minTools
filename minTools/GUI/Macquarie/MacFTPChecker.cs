@@ -7,7 +7,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using minTools.Macquarie;
+using minTools.Valbury.Macquarie;
 using minTools.FTP;
 
 namespace minTools.GUI.Macquarie
@@ -53,9 +53,9 @@ namespace minTools.GUI.Macquarie
         {
             //get ftp directory listing
             List<string> contents = FTPToolkit.getFTPDirectoryContents(
-                minTools.Macquarie.Constants.MacFTPLocationSignedInAsMacquarie,
-                minTools.Macquarie.Constants.MacFTPLocationUser,
-                minTools.Macquarie.Constants.MacFTPLocationPass);
+                Constants.MacFTPLocationSignedInAsMacquarie,
+                Constants.MacFTPLocationUser,
+                Constants.MacFTPLocationPass);
 
             //figure out how many statements in total we have for either type
             int csvAmount = FilenameChecker.howManyRawDataStatements(contents);
@@ -72,7 +72,7 @@ namespace minTools.GUI.Macquarie
         private void MacFTPChecker_Load(object sender, EventArgs e)
         {
             //as a default, set the date times to today
-            dtpClientStatements.Value = dtpRawData.Value = minTools.Macquarie.BusinessDay.GetLastBusinessDayDateTime(DateTime.Today);
+            dtpClientStatements.Value = dtpRawData.Value = BusinessDay.GetLastBusinessDayDateTime(DateTime.Today);
 
             updateFromFTP();
         }

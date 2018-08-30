@@ -159,7 +159,7 @@ namespace minTools
                 {
                     int output = 0;
                     foreach (string file in listOfFilenames)
-                        if (minTools.Macquarie.FilenameChecker.isFilenameRawData(file))
+                        if (FilenameChecker.isFilenameRawData(file))
                             ++output;
                     return output;
                 }
@@ -168,8 +168,8 @@ namespace minTools
                 {
                     int output = 0;
                     foreach (string file in listOfFilenames)
-                        if (minTools.Macquarie.FilenameChecker.isFilenameRawData(file) &&
-                            minTools.Macquarie.FilenameChecker.deriveFilenameDate(file).Equals(forThisStatementDate))
+                        if (FilenameChecker.isFilenameRawData(file) &&
+                            FilenameChecker.deriveFilenameDate(file).Equals(forThisStatementDate))
                             ++output;
                     return output;
                 }
@@ -178,7 +178,7 @@ namespace minTools
                 {
                     int output = 0;
                     foreach (string file in listOfFilenames)
-                        if (minTools.Macquarie.FilenameChecker.isFilenameClientStatement(file))
+                        if (FilenameChecker.isFilenameClientStatement(file))
                             ++output;
                     return output;
                 }
@@ -187,9 +187,9 @@ namespace minTools
                 {
                     int output = 0;
                     foreach (string file in listOfFilenames)
-                        if (minTools.Macquarie.FilenameChecker.isFilenameClientStatement(file))
+                        if (FilenameChecker.isFilenameClientStatement(file))
                         {
-                            DateTime fileDate = minTools.Macquarie.FilenameChecker.deriveFilenameDate(file);
+                            DateTime fileDate = FilenameChecker.deriveFilenameDate(file);
                             if (forThisStatementDate.Date.Equals(fileDate.Date))
                                 output++;
                         }
