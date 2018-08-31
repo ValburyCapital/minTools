@@ -55,6 +55,9 @@
             this.cbFileSize = new System.Windows.Forms.CheckBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.comboFileSizeSize = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbReplaceA = new System.Windows.Forms.TextBox();
+            this.tbReplaceB = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tpBatchFileRename.SuspendLayout();
@@ -192,6 +195,9 @@
             this.tableLayoutPanel1.Controls.Add(this.cbFileSize, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.numericUpDown1, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.comboFileSizeSize, 4, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.tbReplaceA, 2, 5);
+            this.tableLayoutPanel1.Controls.Add(this.tbReplaceB, 3, 5);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 19);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 8;
@@ -398,6 +404,32 @@
             this.comboFileSizeSize.Size = new System.Drawing.Size(55, 21);
             this.comboFileSizeSize.TabIndex = 16;
             // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(63, 268);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(47, 13);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "Replace";
+            // 
+            // tbReplaceA
+            // 
+            this.tbReplaceA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbReplaceA.Location = new System.Drawing.Point(164, 265);
+            this.tbReplaceA.Name = "tbReplaceA";
+            this.tbReplaceA.Size = new System.Drawing.Size(205, 20);
+            this.tbReplaceA.TabIndex = 18;
+            // 
+            // tbReplaceB
+            // 
+            this.tbReplaceB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbReplaceB.Location = new System.Drawing.Point(375, 265);
+            this.tbReplaceB.Name = "tbReplaceB";
+            this.tbReplaceB.Size = new System.Drawing.Size(407, 20);
+            this.tbReplaceB.TabIndex = 19;
+            // 
             // FolderTools
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -451,5 +483,8 @@
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Button btnRename;
         private System.Windows.Forms.ComboBox comboFileSizeSize;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tbReplaceA;
+        private System.Windows.Forms.TextBox tbReplaceB;
     }
 }

@@ -117,6 +117,9 @@ namespace minTools
                 output.keywords = tbKeywords.Text;
             }
 
+            output.replaceDestination = tbReplaceA.Text;
+            output.replaceSource = tbReplaceB.Text;
+
             output.searchLocation = tbFolderName.Text;
 
             return output;
@@ -178,7 +181,7 @@ namespace minTools
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            new minTools.FolderToolsCollection.BatchRenamer().rename(createOptionsFromGUISelections());
         }
 
         private void tbKeywords_TextChanged(object sender, EventArgs e)

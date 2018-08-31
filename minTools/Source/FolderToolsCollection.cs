@@ -33,10 +33,11 @@ namespace minTools
         {
             public BatchOptions()
             {
-                searchLocation = keywords = "";
+                replaceSource = replaceDestination =searchLocation = keywords = "";
             }
 
             public string searchLocation;
+            public string replaceSource, replaceDestination;
 
             public string keywords;
             public KeywordFilterOptions keywordOptions;
@@ -63,6 +64,12 @@ namespace minTools
                 List<string> filesToRename = getFilesAfterFiltering(options);
 
                 //rename each file in the filtered results
+                foreach(string fileToRename in filesToRename)
+                {
+                    string newFileName = fileToRename.Replace(options.replaceDestination, options.replaceSource);
+                    File.Copy(fileToRename, newFileName);
+                    File.Delete(fileToRename);
+                }
             }
 
             public List<string> getFilesAfterFiltering(BatchOptions options)
