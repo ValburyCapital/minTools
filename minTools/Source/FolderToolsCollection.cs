@@ -51,6 +51,32 @@ namespace minTools
 
         public class BatchAction
         {
+            public void executeBatch(BatchOptions options)
+            {
+                //get all files in the folder
+                if (options.searchLocation.Trim().Equals(string.Empty))
+                    return; //no search location specified
+                else if (!Directory.Exists(options.searchLocation))
+                    return; //directory no existay
+
+                //get initial search results using keyword and folder, then filter according to BatchOptions
+                List<string> filesToRename = getFilesAfterFiltering(options);
+
+                //rename each file in the filtered results
+                foreach (string file in filesToRename)
+                    execute(file);
+            }
+
+            public void execute(string filename)
+            {
+                 //todo calc new filename
+                 string newFilename = filename;
+
+                 //rename by copy-deleting
+                 File.Copy(filename, newFilename);
+                 File.Delete(filename);
+            }
+
             public List<string> getFilesAfterFiltering(BatchOptions options)
             {
                 if (!Directory.Exists(options.searchLocation))
@@ -129,27 +155,23 @@ namespace minTools
 
         public class BatchRenamer : BatchAction
         {
-            public void rename(BatchOptions options)
+            new public void execute(string filename)
             {
-                //get all files in the folder
-                if (options.searchLocation.Trim().Equals(string.Empty))
-                    return; //no search location specified
-                else if (!Directory.Exists(options.searchLocation))
-                    return; //directory no existay
+                //todo calc new filename
+                string newFilename = getNewFilename(filename);
 
-                //get initial search results using keyword and folder, then filter according to BatchOptions
-                List<string> filesToRename = getFilesAfterFiltering(options);
+                //rename by copy-deleting
+                File.Copy(filename, newFilename);
+                File.Delete(filename);
+            }
 
-                //rename each file in the filtered results
-                foreach(string file in filesToRename)
-                {
-                    //todo calc new filename
-                    string newFilename = file;
+            public string getNewFilename(string inputFilename)
+            {
+                string outputFilename = inputFilename;
 
-                    //rename by copy-deleting
-                    File.Copy(file, newFilename);
-                    File.Delete(file);
-                }
+
+
+                return outputFilename;
             }
         }
 

@@ -117,6 +117,17 @@ namespace minTools
                 output.keywords = tbKeywords.Text;
             }
 
+            switch(comboReplacement.SelectedItem.ToString())
+            {
+                case "Replace Keyword":
+                    //todo add a member to represent tis
+                    break;
+
+                default:
+                    break;
+            }
+
+            output.replacement = tbReplacement.Text;
             output.searchLocation = tbFolderName.Text;
 
             return output;
@@ -178,12 +189,19 @@ namespace minTools
 
         private void button1_Click(object sender, EventArgs e)
         {
+            var options = createOptionsFromGUISelections();
 
+            new FolderToolsCollection.BatchRenamer().executeBatch(options);
         }
 
         private void tbKeywords_TextChanged(object sender, EventArgs e)
         {
             updateFileCount();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
