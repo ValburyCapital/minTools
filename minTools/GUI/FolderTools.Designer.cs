@@ -55,6 +55,10 @@
             this.cbFileSize = new System.Windows.Forms.CheckBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.comboFileSizeSize = new System.Windows.Forms.ComboBox();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbReplacement = new System.Windows.Forms.TextBox();
+            this.comboReplacement = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tpBatchFileRename.SuspendLayout();
@@ -103,6 +107,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tpBatchFileRename);
+            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Location = new System.Drawing.Point(12, 71);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -175,23 +180,26 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.99297F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.87269F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.976745F));
-            this.tableLayoutPanel1.Controls.Add(this.comboFileSize, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 7);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tbKeywords, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.cbKeywords, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.cbDateModified, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.dtpDateModified, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.lbEstimatedMatchesAmount, 1, 7);
-            this.tableLayoutPanel1.Controls.Add(this.comboDateModified, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.lbEstimatedMatches, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.lbFilesInFolderAmount, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.comboKeywords, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.cbFileSize, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown1, 3, 2);
-            this.tableLayoutPanel1.Controls.Add(this.comboFileSizeSize, 4, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.cbFileSize, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.comboFileSize, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.numericUpDown1, 3, 3);
+            this.tableLayoutPanel1.Controls.Add(this.comboFileSizeSize, 4, 3);
+            this.tableLayoutPanel1.Controls.Add(this.dtpDateModified, 3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.comboDateModified, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.cbDateModified, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.tbReplacement, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.comboReplacement, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 19);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 8;
@@ -218,7 +226,7 @@
             "is less than",
             "is equal to or less than",
             "is equal to or more than"});
-            this.comboFileSize.Location = new System.Drawing.Point(164, 114);
+            this.comboFileSize.Location = new System.Drawing.Point(164, 164);
             this.comboFileSize.Name = "comboFileSize";
             this.comboFileSize.Size = new System.Drawing.Size(205, 21);
             this.comboFileSize.TabIndex = 14;
@@ -237,7 +245,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(37, 68);
+            this.label2.Location = new System.Drawing.Point(37, 118);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 13);
             this.label2.TabIndex = 3;
@@ -279,7 +287,7 @@
             // 
             this.cbDateModified.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbDateModified.AutoSize = true;
-            this.cbDateModified.Location = new System.Drawing.Point(129, 68);
+            this.cbDateModified.Location = new System.Drawing.Point(129, 118);
             this.cbDateModified.Name = "cbDateModified";
             this.cbDateModified.Size = new System.Drawing.Size(15, 14);
             this.cbDateModified.TabIndex = 5;
@@ -290,7 +298,7 @@
             // 
             this.dtpDateModified.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpDateModified.Enabled = false;
-            this.dtpDateModified.Location = new System.Drawing.Point(375, 65);
+            this.dtpDateModified.Location = new System.Drawing.Point(375, 115);
             this.dtpDateModified.Name = "dtpDateModified";
             this.dtpDateModified.Size = new System.Drawing.Size(407, 20);
             this.dtpDateModified.TabIndex = 6;
@@ -317,7 +325,7 @@
             "On or before this day",
             "After this day",
             "On or after this day"});
-            this.comboDateModified.Location = new System.Drawing.Point(164, 64);
+            this.comboDateModified.Location = new System.Drawing.Point(164, 114);
             this.comboDateModified.Name = "comboDateModified";
             this.comboDateModified.Size = new System.Drawing.Size(205, 21);
             this.comboDateModified.TabIndex = 8;
@@ -359,7 +367,7 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(64, 118);
+            this.label3.Location = new System.Drawing.Point(64, 168);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 13);
             this.label3.TabIndex = 12;
@@ -369,7 +377,7 @@
             // 
             this.cbFileSize.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbFileSize.AutoSize = true;
-            this.cbFileSize.Location = new System.Drawing.Point(129, 118);
+            this.cbFileSize.Location = new System.Drawing.Point(129, 168);
             this.cbFileSize.Name = "cbFileSize";
             this.cbFileSize.Size = new System.Drawing.Size(15, 14);
             this.cbFileSize.TabIndex = 13;
@@ -380,7 +388,7 @@
             // 
             this.numericUpDown1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDown1.Enabled = false;
-            this.numericUpDown1.Location = new System.Drawing.Point(375, 115);
+            this.numericUpDown1.Location = new System.Drawing.Point(375, 165);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(407, 20);
             this.numericUpDown1.TabIndex = 15;
@@ -393,10 +401,49 @@
             "Kb",
             "Mb",
             "Gb"});
-            this.comboFileSizeSize.Location = new System.Drawing.Point(788, 114);
+            this.comboFileSizeSize.Location = new System.Drawing.Point(788, 164);
             this.comboFileSizeSize.Name = "comboFileSizeSize";
             this.comboFileSizeSize.Size = new System.Drawing.Size(55, 21);
             this.comboFileSizeSize.TabIndex = 16;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(865, 477);
+            this.tabPage1.TabIndex = 1;
+            this.tabPage1.Text = "Combine Files";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(40, 68);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(70, 13);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "Replacement";
+            // 
+            // tbReplacement
+            // 
+            this.tbReplacement.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbReplacement.Location = new System.Drawing.Point(375, 65);
+            this.tbReplacement.Name = "tbReplacement";
+            this.tbReplacement.Size = new System.Drawing.Size(407, 20);
+            this.tbReplacement.TabIndex = 18;
+            // 
+            // comboReplacement
+            // 
+            this.comboReplacement.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboReplacement.FormattingEnabled = true;
+            this.comboReplacement.Items.AddRange(new object[] {
+            "Replace Keyword"});
+            this.comboReplacement.Location = new System.Drawing.Point(164, 64);
+            this.comboReplacement.Name = "comboReplacement";
+            this.comboReplacement.Size = new System.Drawing.Size(205, 21);
+            this.comboReplacement.TabIndex = 19;
             // 
             // FolderTools
             // 
@@ -451,5 +498,9 @@
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Button btnRename;
         private System.Windows.Forms.ComboBox comboFileSizeSize;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.ComboBox comboReplacement;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tbReplacement;
     }
 }

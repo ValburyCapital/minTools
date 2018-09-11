@@ -33,12 +33,12 @@ namespace minTools
         {
             public BatchOptions()
             {
-                searchLocation = keywords = "";
+                searchLocation = replacement = keywords = "";
             }
 
             public string searchLocation;
 
-            public string keywords;
+            public string keywords, replacement;
             public KeywordFilterOptions keywordOptions;
 
             public DateTime dateModified;
@@ -49,22 +49,8 @@ namespace minTools
             public FileSizeSizeOptions sizeOptions;
         }
 
-        public class BatchRenamer
+        public class BatchAction
         {
-            public void rename(BatchOptions options)
-            {
-                //get all files in the folder
-                if (options.searchLocation.Trim().Equals(string.Empty))
-                    return; //no search location specified
-                else if (!Directory.Exists(options.searchLocation))
-                    return; //directory no existay
-
-                //get initial search results using keyword and folder, then filter according to BatchOptions
-                List<string> filesToRename = getFilesAfterFiltering(options);
-
-                //rename each file in the filtered results
-            }
-
             public List<string> getFilesAfterFiltering(BatchOptions options)
             {
                 if (!Directory.Exists(options.searchLocation))
@@ -138,6 +124,40 @@ namespace minTools
                     }
 
                 return false;
+            }
+        }
+
+        public class BatchRenamer : BatchAction
+        {
+            public void rename(BatchOptions options)
+            {
+                //get all files in the folder
+                if (options.searchLocation.Trim().Equals(string.Empty))
+                    return; //no search location specified
+                else if (!Directory.Exists(options.searchLocation))
+                    return; //directory no existay
+
+                //get initial search results using keyword and folder, then filter according to BatchOptions
+                List<string> filesToRename = getFilesAfterFiltering(options);
+
+                //rename each file in the filtered results
+                foreach(string file in filesToRename)
+                {
+                    //todo calc new filename
+                    string newFilename = file;
+
+                    //rename by copy-deleting
+                    File.Copy(file, newFilename);
+                    File.Delete(file);
+                }
+            }
+        }
+
+        public class BatchCombiner : BatchAction
+        {
+            public void combine(BatchOptions options)
+            {
+
             }
         }
     }

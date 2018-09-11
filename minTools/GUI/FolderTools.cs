@@ -25,7 +25,7 @@ namespace minTools
         private void FolderTools_Load(object sender, EventArgs e)
         {
             //select the first item in Comoboxes
-            comboDateModified.SelectedIndex = comboKeywords.SelectedIndex = comboFileSize.SelectedIndex = 0;
+            comboReplacement.SelectedIndex = comboDateModified.SelectedIndex = comboKeywords.SelectedIndex = comboFileSize.SelectedIndex = 0;
         }
         
         void setFolder(string path)
