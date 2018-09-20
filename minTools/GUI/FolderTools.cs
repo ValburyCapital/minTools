@@ -81,20 +81,40 @@ namespace minTools
 
             if (cbFileSize.Checked)
             {
-                switch(comboFileSize.SelectedItem.ToString())
-                {
-                    case "Kb":
-                        output.sizeOptions = FolderToolsCollection.FileSizeSizeOptions.Kb;
-                        break;
+                if(comboFileSizeSize.SelectedIndex != -1)
+                    switch(comboFileSizeSize.SelectedItem.ToString())
+                    {
+                        case "Kb":
+                            output.sizeOptions = FolderToolsCollection.FileSizeSizeOptions.Kb;
+                            break;
 
-                    case "Mb":
-                        output.sizeOptions = FolderToolsCollection.FileSizeSizeOptions.Mb;
-                        break;
+                        case "Mb":
+                            output.sizeOptions = FolderToolsCollection.FileSizeSizeOptions.Mb;
+                            break;
 
-                    case "Gb":
-                        output.sizeOptions = FolderToolsCollection.FileSizeSizeOptions.Gb;
-                        break;
-                }
+                        case "Gb":
+                            output.sizeOptions = FolderToolsCollection.FileSizeSizeOptions.Gb;
+                            break;
+                    }
+                if(comboFileSize.SelectedIndex != -1)
+                    switch(comboFileSize.SelectedItem.ToString())
+                    {
+                        case "is exactly":
+                            output.filterOptions = FolderToolsCollection.FileSizeFilterOptions.IsExactly;
+                            break;
+                        case "is more than":
+                            output.filterOptions = FolderToolsCollection.FileSizeFilterOptions.IsMoreThan;
+                            break;
+                        case "is less than":
+                            output.filterOptions = FolderToolsCollection.FileSizeFilterOptions.IsLessThan;
+                            break;
+                        case "is equal to or less than":
+                            output.filterOptions = FolderToolsCollection.FileSizeFilterOptions.IsEqualToOrLessThan;
+                            break;
+                        case "is equal to or more than":
+                            output.filterOptions = FolderToolsCollection.FileSizeFilterOptions.IsEqualToOrMoreThan;
+                            break;
+                    }
                 output.fileSize = (double)numericUpDown1.Value;
             }
 

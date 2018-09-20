@@ -65,8 +65,10 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\Common.cs" />
+    <Compile Include="Source\CSV.cs" />
     <Compile Include="Source\FolderToolsCollection.cs" />
     <Compile Include="Source\FTPTools.cs" />
+    <Compile Include="Source\IniFile.cs" />
     <Compile Include="Source\Macquarie.cs" />
     <EmbeddedResource Include="GUI\FolderTools.resx">
       <DependentUpon>FolderTools.cs</DependentUpon>

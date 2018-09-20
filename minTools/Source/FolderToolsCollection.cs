@@ -64,10 +64,10 @@ namespace minTools
 
                 //rename each file in the filtered results
                 foreach (string file in filesToRename)
-                    execute(file);
+                    execute(options, file);
             }
 
-            public void execute(string filename)
+            public void execute(BatchOptions options, string filename)
             {
                  //todo calc new filename
                  string newFilename = filename;
