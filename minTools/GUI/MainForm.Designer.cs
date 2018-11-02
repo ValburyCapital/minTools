@@ -44,6 +44,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblStatusMain = new System.Windows.Forms.ToolStripStatusLabel();
             this.niSysTray = new System.Windows.Forms.NotifyIcon(this.components);
+            this.sMTPCheckerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -63,7 +64,8 @@
             // 
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.folderToolsToolStripMenuItem,
-            this.macquarieToolsToolStripMenuItem});
+            this.macquarieToolsToolStripMenuItem,
+            this.sMTPCheckerToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.toolsToolStripMenuItem.Text = "Tools";
@@ -71,7 +73,7 @@
             // folderToolsToolStripMenuItem
             // 
             this.folderToolsToolStripMenuItem.Name = "folderToolsToolStripMenuItem";
-            this.folderToolsToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.folderToolsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.folderToolsToolStripMenuItem.Text = "Folder Tools";
             this.folderToolsToolStripMenuItem.Click += new System.EventHandler(this.folderToolsToolStripMenuItem_Click);
             // 
@@ -80,7 +82,7 @@
             this.macquarieToolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fTPCheckerToolStripMenuItem});
             this.macquarieToolsToolStripMenuItem.Name = "macquarieToolsToolStripMenuItem";
-            this.macquarieToolsToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.macquarieToolsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.macquarieToolsToolStripMenuItem.Text = "Macquarie Tools";
             // 
             // fTPCheckerToolStripMenuItem
@@ -159,6 +161,13 @@
             this.niSysTray.Visible = true;
             this.niSysTray.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 
+            // sMTPCheckerToolStripMenuItem
+            // 
+            this.sMTPCheckerToolStripMenuItem.Name = "sMTPCheckerToolStripMenuItem";
+            this.sMTPCheckerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sMTPCheckerToolStripMenuItem.Text = "SMTP Checker";
+            this.sMTPCheckerToolStripMenuItem.Click += new System.EventHandler(this.sMTPCheckerToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -199,6 +208,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lblStatusMain;
         private System.Windows.Forms.NotifyIcon niSysTray;
+        private System.Windows.Forms.ToolStripMenuItem sMTPCheckerToolStripMenuItem;
     }
 }
 

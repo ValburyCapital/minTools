@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using minTools.GUI;
 using minTools.GUI.Macquarie;
 using minTools.FTP;
 using minTools.Valbury.Macquarie;
@@ -19,6 +20,7 @@ namespace minTools
         {
             public FolderTools ftGUI = new FolderTools();
             public MacFTPChecker mftpcGUI = new MacFTPChecker();
+            public SMTPChecker smtpcGUI = new SMTPChecker();
         }
 
         MainFormData data = new MainFormData();
@@ -46,6 +48,13 @@ namespace minTools
             if (data.mftpcGUI.Visible == false)
                 data.mftpcGUI = new MacFTPChecker();
             data.mftpcGUI.ShowDialog();
+        }
+
+        void showSMTPChecker()
+        {
+            if (data.smtpcGUI.Visible == false)
+                data.smtpcGUI = new SMTPChecker();
+            data.smtpcGUI.ShowDialog();
         }
 
         void updateMacqFTPStatusLabel()
@@ -81,6 +90,11 @@ namespace minTools
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
 
+        }
+
+        private void sMTPCheckerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showSMTPChecker();
         }
     }
 }

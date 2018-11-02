@@ -24,6 +24,7 @@ namespace minTools
 
             if (!ini.isLoaded())
                 return;
+
         }
 
         /// <summary>

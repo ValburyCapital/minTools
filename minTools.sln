@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "minTools", "minTools\minTools.csproj", "{6665D253-E5A9-47BD-92D7-9C75730856BB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Include", "Include", "{12F14F02-F802-4E84-A191-3D9D2B53FDD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B2BFamily.SmtpValidation.Lib", "include\SmtpValidator\B2BFamily.SmtpValidationLib\B2BFamily.SmtpValidation.Lib.csproj", "{54E1B97B-110E-4C4A-8A30-964A818F6A4B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +19,16 @@ Global
 		{6665D253-E5A9-47BD-92D7-9C75730856BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6665D253-E5A9-47BD-92D7-9C75730856BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6665D253-E5A9-47BD-92D7-9C75730856BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54E1B97B-110E-4C4A-8A30-964A818F6A4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54E1B97B-110E-4C4A-8A30-964A818F6A4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54E1B97B-110E-4C4A-8A30-964A818F6A4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54E1B97B-110E-4C4A-8A30-964A818F6A4B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{54E1B97B-110E-4C4A-8A30-964A818F6A4B} = {12F14F02-F802-4E84-A191-3D9D2B53FDD7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DC4657B4-1601-4044-911C-7236B4A6B0A9}
