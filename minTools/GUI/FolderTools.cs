@@ -25,7 +25,7 @@ namespace minTools
         private void FolderTools_Load(object sender, EventArgs e)
         {
             //select the first item in Comoboxes
-            comboDateModified.SelectedIndex = comboKeywords.SelectedIndex = comboFileSize.SelectedIndex = 0;
+            comboReplacement.SelectedIndex = comboDateModified.SelectedIndex = comboKeywords.SelectedIndex = comboFileSize.SelectedIndex = 0;
         }
         
         void setFolder(string path)
@@ -81,20 +81,40 @@ namespace minTools
 
             if (cbFileSize.Checked)
             {
-                switch(comboFileSize.SelectedItem.ToString())
-                {
-                    case "Kb":
-                        output.sizeOptions = FolderToolsCollection.FileSizeSizeOptions.Kb;
-                        break;
+                if(comboFileSizeSize.SelectedIndex != -1)
+                    switch(comboFileSizeSize.SelectedItem.ToString())
+                    {
+                        case "Kb":
+                            output.sizeOptions = FolderToolsCollection.FileSizeSizeOptions.Kb;
+                            break;
 
-                    case "Mb":
-                        output.sizeOptions = FolderToolsCollection.FileSizeSizeOptions.Mb;
-                        break;
+                        case "Mb":
+                            output.sizeOptions = FolderToolsCollection.FileSizeSizeOptions.Mb;
+                            break;
 
-                    case "Gb":
-                        output.sizeOptions = FolderToolsCollection.FileSizeSizeOptions.Gb;
-                        break;
-                }
+                        case "Gb":
+                            output.sizeOptions = FolderToolsCollection.FileSizeSizeOptions.Gb;
+                            break;
+                    }
+                if(comboFileSize.SelectedIndex != -1)
+                    switch(comboFileSize.SelectedItem.ToString())
+                    {
+                        case "is exactly":
+                            output.filterOptions = FolderToolsCollection.FileSizeFilterOptions.IsExactly;
+                            break;
+                        case "is more than":
+                            output.filterOptions = FolderToolsCollection.FileSizeFilterOptions.IsMoreThan;
+                            break;
+                        case "is less than":
+                            output.filterOptions = FolderToolsCollection.FileSizeFilterOptions.IsLessThan;
+                            break;
+                        case "is equal to or less than":
+                            output.filterOptions = FolderToolsCollection.FileSizeFilterOptions.IsEqualToOrLessThan;
+                            break;
+                        case "is equal to or more than":
+                            output.filterOptions = FolderToolsCollection.FileSizeFilterOptions.IsEqualToOrMoreThan;
+                            break;
+                    }
                 output.fileSize = (double)numericUpDown1.Value;
             }
 
@@ -117,9 +137,17 @@ namespace minTools
                 output.keywords = tbKeywords.Text;
             }
 
-            output.replaceDestination = tbReplaceA.Text;
-            output.replaceSource = tbReplaceB.Text;
+            switch(comboReplacement.SelectedItem.ToString())
+            {
+                case "Replace Keyword":
+                    //todo add a member to represent tis
+                    break;
 
+                default:
+                    break;
+            }
+
+            output.replacement = tbReplacement.Text;
             output.searchLocation = tbFolderName.Text;
 
             return output;
@@ -181,12 +209,19 @@ namespace minTools
 
         private void button1_Click(object sender, EventArgs e)
         {
-            new minTools.FolderToolsCollection.BatchRenamer().rename(createOptionsFromGUISelections());
+            var options = createOptionsFromGUISelections();
+
+            new FolderToolsCollection.BatchRenamer().executeBatch(options);
         }
 
         private void tbKeywords_TextChanged(object sender, EventArgs e)
         {
             updateFileCount();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

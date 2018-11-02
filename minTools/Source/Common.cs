@@ -16,7 +16,7 @@ namespace minTools
 
             appLaunchInfo.WorkingDirectory = new FileInfo(appLocation).DirectoryName;
             appLaunchInfo.UserName = "vcladmin";
-            appLaunchInfo.Password = new System.Net.NetworkCredential("", "").SecurePassword;
+            appLaunchInfo.Password = new System.Net.NetworkCredential("", "V@lburyc@p1t@l").SecurePassword;
             appLaunchInfo.Domain = "vcl";
             appLaunchInfo.UseShellExecute = false;
             Process p = Process.Start(appLaunchInfo);

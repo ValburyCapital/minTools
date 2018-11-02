@@ -33,13 +33,12 @@ namespace minTools
         {
             public BatchOptions()
             {
-                replaceSource = replaceDestination =searchLocation = keywords = "";
+                searchLocation = replacement = keywords = "";
             }
 
             public string searchLocation;
-            public string replaceSource, replaceDestination;
 
-            public string keywords;
+            public string keywords, replacement;
             public KeywordFilterOptions keywordOptions;
 
             public DateTime dateModified;
@@ -50,9 +49,9 @@ namespace minTools
             public FileSizeSizeOptions sizeOptions;
         }
 
-        public class BatchRenamer
+        public class BatchAction
         {
-            public void rename(BatchOptions options)
+            public void executeBatch(BatchOptions options)
             {
                 //get all files in the folder
                 if (options.searchLocation.Trim().Equals(string.Empty))
@@ -64,12 +63,18 @@ namespace minTools
                 List<string> filesToRename = getFilesAfterFiltering(options);
 
                 //rename each file in the filtered results
-                foreach(string fileToRename in filesToRename)
-                {
-                    string newFileName = fileToRename.Replace(options.replaceDestination, options.replaceSource);
-                    File.Copy(fileToRename, newFileName);
-                    File.Delete(fileToRename);
-                }
+                foreach (string file in filesToRename)
+                    execute(options, file);
+            }
+
+            public void execute(BatchOptions options, string filename)
+            {
+                 //todo calc new filename
+                 string newFilename = filename;
+
+                 //rename by copy-deleting
+                 File.Copy(filename, newFilename);
+                 File.Delete(filename);
             }
 
             public List<string> getFilesAfterFiltering(BatchOptions options)
@@ -145,6 +150,36 @@ namespace minTools
                     }
 
                 return false;
+            }
+        }
+
+        public class BatchRenamer : BatchAction
+        {
+            new public void execute(string filename)
+            {
+                //todo calc new filename
+                string newFilename = getNewFilename(filename);
+
+                //rename by copy-deleting
+                File.Copy(filename, newFilename);
+                File.Delete(filename);
+            }
+
+            public string getNewFilename(string inputFilename)
+            {
+                string outputFilename = inputFilename;
+
+
+
+                return outputFilename;
+            }
+        }
+
+        public class BatchCombiner : BatchAction
+        {
+            public void combine(BatchOptions options)
+            {
+
             }
         }
     }

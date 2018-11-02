@@ -17,6 +17,7 @@ namespace minTools
         public class MainFormData
         {
             public FolderTools ftGUI = new FolderTools();
+            public GUI.SMTPChecker smtpcGUI = new GUI.SMTPChecker();
         }
 
         MainFormData data = new MainFormData();
@@ -68,6 +69,11 @@ namespace minTools
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
 
+        }
+
+        private void sMTPCheckerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new GUI.SMTPChecker().Show();
         }
     }
 }

@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="B2BFamily.SmtpValidation.Lib">
+      <HintPath>..\include\SmtpValidator\B2BFamily.SmtpValidationLib\bin\Debug\B2BFamily.SmtpValidation.Lib.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -56,16 +59,28 @@
     <Compile Include="GUI\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\SMTPChecker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\SMTPChecker.designer.cs">
+      <DependentUpon>SMTPChecker.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\Common.cs" />
+    <Compile Include="Source\CSV.cs" />
     <Compile Include="Source\FolderToolsCollection.cs" />
     <Compile Include="Source\FTPTools.cs" />
+    <Compile Include="Source\IniFile.cs" />
+    <Compile Include="Source\SMTP.cs" />
     <EmbeddedResource Include="GUI\FolderTools.resx">
       <DependentUpon>FolderTools.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\SMTPChecker.resx">
+      <DependentUpon>SMTPChecker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
