@@ -51,6 +51,8 @@ namespace minTools.GUI
         {
             clearLabels();
 
+            lblServerStatusAnswer.Text = "Testing...";
+
             string hostname = tbHostname.Text;
             if (hostname.Trim().Equals(string.Empty))
             {
@@ -90,6 +92,7 @@ namespace minTools.GUI
             if (!testConnectionPassed)
                 return;
 
+            lblCredentialsAnswer.Text = "Testing...";
             string hostname = tbHostname.Text;
             int port = getPortNum_ChangeTextboxIfIncorrect();
 
