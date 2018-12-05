@@ -97,17 +97,7 @@ namespace minTools.GUI
             int port = getPortNum_ChangeTextboxIfIncorrect();
 
             string user = tbUsername.Text;
-            if (user.Trim().Equals(string.Empty))
-            {
-                lblCredentialsAnswer.Text = "Username required";
-                return;
-            }
             string pass = tbPassword.Text;
-            if (pass.Trim().Equals(string.Empty))
-            {
-                lblCredentialsAnswer.Text = "Password required";
-                return;
-            }
 
             lblCredentialsAnswer.Text = "Testing credentials";
 
@@ -123,6 +113,18 @@ namespace minTools.GUI
 
         }
 
+        private void btnTestEmail_Click(object sender, EventArgs e)
+        {
+            string recipients = tbTestAddress.Text;
+            string hostname = tbHostname.Text;
+            int port = getPortNum_ChangeTextboxIfIncorrect();
+            string user = tbUsername.Text;
+            string pass = tbPassword.Text;
+
+            string outputMessage;
+            if (!new SMTPStatusChecker().testSendEmail(recipients, hostname, port, user, pass, cbEnableSSL.Checked, out outputMessage))
+                MessageBox.Show("Failed!\n\n" + outputMessage);
+        }
     }
 }
 

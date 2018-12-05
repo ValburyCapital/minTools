@@ -2,6 +2,7 @@
 using System.IO;
 using System.Net.Security;
 using System.Net.Sockets;
+using System.Net.Mail;
 
 namespace minTools
 {
@@ -62,6 +63,29 @@ namespace minTools
                     return false;
 
                 return B2BFamily.SmtpValidation.Lib.SmtpHelper.ValidateCredentials(user, pass, hostname, port, enableSSL);
+            }
+
+            public bool testSendEmail(string recipients, string hostname, int port, string user, string pass, bool enableSSL, out string outputMessage)
+            {
+                if (!testConnection(hostname, port, enableSSL, out outputMessage))
+                    return false;
+
+                var client = new SmtpClient();
+                client.Host = hostname;
+                client.Port = port;
+                client.EnableSsl = enableSSL;
+
+                try
+                {
+                    client.Send("me@you.com", recipients, "Outgoing email test", "Testing 1,2,3");
+                }
+                catch (Exception e)
+                {
+                    outputMessage += e.Message;
+                    return false;
+                }
+
+                return true;
             }
         }
     }

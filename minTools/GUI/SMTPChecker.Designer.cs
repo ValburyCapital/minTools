@@ -46,6 +46,9 @@
             this.lblServerStatusAnswer = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tbTestAddress = new System.Windows.Forms.TextBox();
+            this.btnTestEmail = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -159,6 +162,9 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnTestEmail);
+            this.groupBox3.Controls.Add(this.tbTestAddress);
+            this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.btnTestServer);
             this.groupBox3.Controls.Add(this.btnTestCredentials);
             this.groupBox3.Controls.Add(this.lblCredentialsAnswer);
@@ -167,7 +173,7 @@
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Location = new System.Drawing.Point(12, 180);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(388, 72);
+            this.groupBox3.Size = new System.Drawing.Size(388, 95);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Results";
@@ -229,11 +235,37 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Server Status:";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 74);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(72, 13);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "Test Address:";
+            // 
+            // tbTestAddress
+            // 
+            this.tbTestAddress.Location = new System.Drawing.Point(76, 71);
+            this.tbTestAddress.Name = "tbTestAddress";
+            this.tbTestAddress.Size = new System.Drawing.Size(221, 20);
+            this.tbTestAddress.TabIndex = 6;
+            // 
+            // btnTestEmail
+            // 
+            this.btnTestEmail.Location = new System.Drawing.Point(303, 69);
+            this.btnTestEmail.Name = "btnTestEmail";
+            this.btnTestEmail.Size = new System.Drawing.Size(75, 23);
+            this.btnTestEmail.TabIndex = 8;
+            this.btnTestEmail.Text = "Test Email";
+            this.btnTestEmail.UseVisualStyleBackColor = true;
+            this.btnTestEmail.Click += new System.EventHandler(this.btnTestEmail_Click);
+            // 
             // SMTPChecker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(418, 258);
+            this.ClientSize = new System.Drawing.Size(418, 287);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -271,5 +303,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnTestServer;
         private System.Windows.Forms.Button btnTestCredentials;
+        private System.Windows.Forms.Button btnTestEmail;
+        private System.Windows.Forms.TextBox tbTestAddress;
+        private System.Windows.Forms.Label label7;
     }
 }
